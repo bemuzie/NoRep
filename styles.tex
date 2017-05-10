@@ -1,0 +1,96 @@
+
+
+%%% Макет страницы %%%
+\geometry{a4paper, mag=1000,
+          left=2.5cm, right=1cm, top=2cm, bottom=2cm, headsep=0.7cm, footskip=1cm}
+
+%%% Кодировки и шрифты %%%
+%\renewcommand{\rmdefault}{ftm} % Включаем Times New Roman
+\renewcommand{\rmdefault}{cmr} % Включаем Times New Roman
+
+%%% Выравнивание и переносы %%%
+\sloppy					% Избавляемся от переполнений
+\clubpenalty=10000		% Запрещаем разрыв страницы после первой строки абзаца
+\widowpenalty=10000		% Запрещаем разрыв страницы после последней строки абзаца
+
+%%% Интервалы
+\linespread{2}                    % Полуторный интервал (ГОСТ Р 7.0.11-2011, 5.3.6)
+
+%%% Абзац
+\setlength{\parindent}{1.27cm}  % абзацный отступ 5 знаков (ГОСТ Р 7.0.11-2011, 5.3.7)
+
+
+%%% Библиография %%%
+\makeatletter
+\bibliographystyle{./ugost2003}	% Оформляем библиографию в соответствии с ГОСТ 7.0.1-2003
+\renewcommand{\@biblabel}[1]{#1.}	% Заменяем библиографию с квадратных скобок на точку:
+\makeatother
+
+%%% Изображения %%%
+\graphicspath{ {images/}{articles/PerCTPanCr/images/}{articles/image_quality/images/}{../cases/}{../../../cases/} } % Пути к изображениям
+% \usepackage[font=small,labelfont=bf,tableposition=top]{caption} % Уменьшение размера подписи к рисункам
+\renewcommand{\thesubfigure}{\asbuk{subfigure}} % subref по-русски
+\captionsetup[figure]{justification=justified,singlelinecheck=false} %выключка подписей к рисункам влево
+\captionsetup[subfigure]{justification=centering}
+
+%%% Цвета гиперссылок %%%
+%\definecolor{linkcolor}{rgb}{0.9,0,0}
+%\definecolor{citecolor}{rgb}{0,0.6,0}
+%\definecolor{urlcolor}{rgb}{0,0,1}
+\hypersetup{
+    colorlinks, linkcolor={linkcolor},
+    citecolor={citecolor}, urlcolor={urlcolor}
+}
+
+%%% Оглавление %%%
+\renewcommand{\cftchapdotsep}{\cftdotsep}
+
+%%% Нумерация
+%\renewcommand{\thefigure}{\arabic{figure}}
+\usepackage{chngcntr}
+\counterwithout{figure}{chapter}
+\counterwithout{table}{chapter}
+
+%%%Сноски на странице
+\newcommand{\annotation}[1]{%
+  %\marginpar{\small\itshape\color{blue}#1} % делаем их невидимыми
+  }
+
+%%%Для переноса номера страницы вверх
+% Taken from http://tex.stackexchange.com/questions/88574/page-numbering-at-the-top-centre
+      \fancyhf{}
+      \fancyhead[C]{\thepage}
+      \pagestyle{fancy}
+      
+      % redefine the plain pagestyle
+      %\let\ps@plain\ps@fancy% Plain page style = Fancy page style
+            \fancypagestyle{plain}{%
+      \fancyhf{} % clear all header and footer fields
+      \fancyhead[C]{\thepage} % except the center
+      }
+      
+      
+      \renewcommand{\headrulewidth}{0pt} %% remove fancyhdr line
+      
+
+% Шрифт заголовков %(ГОСТ Р 7.0.11-2011, 5.3.5)
+\titleformat{\section}
+  {\bfseries\centering\fontsize{14}{14}}{\thesection}{1em}{}
+\titleformat{\subsection}
+  {\centering\fontsize{14}{14}}{\thesection}{1em}{}  
+
+
+\titlespacing{\section}{0pt}{3ex}{3ex}   % Заголовки должны быть отделены от текста сверху и снизу тремя интервалами
+\titlespacing{\subsection}{0pt}{3ex}{3ex}
+\titlespacing{\chapter}{0pt}{3ex}{3ex}
+
+%%% Списки %%%
+% Используем дефис для ненумерованных списков (ГОСТ 2.105-95, 4.1.7)
+\renewcommand{\labelitemi}{\normalfont\bfseries{--}} 
+
+\DeclareCaptionLabelFormat{gostfigure}{Рисунок #2}
+\DeclareCaptionLabelFormat{gosttable}{Таблица #2}
+\DeclareCaptionLabelSeparator{gost}{~---~}
+\captionsetup{labelsep=gost}
+\captionsetup[figure]{labelformat=gostfigure}
+\captionsetup[table]{labelformat=gosttable}

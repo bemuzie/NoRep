@@ -1,0 +1,70 @@
+
+
+%%% Поля и разметка страницы %%%
+\usepackage{lscape}		% Для включения альбомных страниц
+\usepackage{geometry}	% Для последующего задания полей
+
+%%% Удобные инклуды
+\usepackage{catchfilebetweentags} % синтаксис: %<*tag> ....   ....  %</tag>
+
+
+
+%%% Кодировки и шрифты %%%
+\usepackage{cmap}						% Улучшенный поиск русских слов в полученном pdf-файле
+\usepackage[T2A]{fontenc}				% Поддержка русских букв
+\usepackage[utf8]{inputenc}				% Кодировка utf8
+\usepackage[russian]{babel}	% Языки: русский, английский
+%\usepackage{cyrtimes}						% Красивые русские шрифты
+
+
+%%% Математические пакеты %%%
+\usepackage{amsthm,amsmath,amssymb,amscd} % Математические дополнения от AMS
+
+%%% Оформление абзацев %%%
+\usepackage{indentfirst} % Красная строка
+
+%%% Цвета %%%
+\usepackage[usenames]{color}
+\usepackage{color}
+\usepackage{colortbl}
+
+%%% Таблицы %%%
+\usepackage{longtable}					% Длинные таблицы
+\usepackage{multirow,makecell,array}	% Улучшенное форматирование таблиц
+\usepackage{floatrow}           
+\floatsetup[table]{capposition=top,style=Plaintop} % floatrow перемещение заголовка таблицы вверх
+\usepackage{rotating} % поворот заголовков таблиц (используется xtable)
+
+
+%%% Общее форматирование
+\usepackage[singlelinecheck=off,center]{caption}	% Многострочные подписи
+\usepackage{soul}									% Поддержка переносоустойчивых подчёркиваний и зачёркиваний
+
+%%% Библиография %%%
+\usepackage{cite} % Красивые ссылки на литературу
+
+%%% Гиперссылки %%%
+\usepackage[linktocpage=true,plainpages=false,pdfpagelabels=false, unicode]{hyperref}
+
+%%% Изображения %%%
+\usepackage[pdftex]{graphicx} % Подключаем пакет работы с графикой
+%\usepackage{subfigure}
+\usepackage{subfig}
+%\usepackage{tikz} % библиографические ссылки в графиках
+
+%%% Оглавление %%%
+%\usepackage[subfigure]{tocloft}
+
+%%%Аннотации
+\usepackage{mparhack}
+
+%%%Для переноса номера страницы вверх
+\usepackage{fancyhdr} % Taken from http://tex.stackexchange.com/questions/88574/page-numbering-at-the-top-centre
+
+%%% Список сокращений
+\usepackage[acronym,nomain,nonumberlist]{glossaries}
+\makeglossaries
+
+
+%Размер шрифта заголовков
+\usepackage{titlesec}
